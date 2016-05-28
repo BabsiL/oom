@@ -15,14 +15,14 @@ namespace lesson2
 		/// <param name="title">Title must not be empty.</param>
 		/// <param name="isbn">International Standard Book Number.</param>
 		/// <param name="price">Price must not be negative.</param>
-		public Book(string title, string isbn, decimal price, Currency currency)
+		public Book(string title, string isbn, decimal price)
 		{
 			if (string.IsNullOrWhiteSpace(title)) throw new ArgumentException("Title must not be empty.", nameof(title));
 			if (string.IsNullOrWhiteSpace(isbn)) throw new ArgumentException("ISBN must not be empty.", nameof(isbn));
 
 			Title = title;
 			ISBN = isbn;
-			UpdatePrice(price, currency);
+			UpdatePrice(price);
 		}
 
 		/// <summary>
@@ -35,10 +35,7 @@ namespace lesson2
 		/// </summary>
 		public string ISBN { get; }
 
-		/// <summary>
-		/// Gets the currency of this book's price.
-		/// </summary>
-		public Currency Currency { get; private set;}
+
 
 		/// <summary>
 		/// Gets the book's price in the given currency.

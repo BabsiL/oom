@@ -1,0 +1,61 @@
+﻿using System;
+
+
+namespace Task2
+{
+	public class Sonstiges : Produkte
+	{
+
+		//private field
+		private int m_artikelnummer;
+		//constructor
+
+		public Sonstiges (string name, int artikelnummer, decimal preis, string warengruppenbereich)
+		{
+
+			if(preis<0) throw new ArgumentException("Der Preis darf keinen negativen Wert haben.", nameof(preis));
+			if(String.IsNullOrWhiteSpace(name)) throw new ArgumentException("Der Name ist ungültig.", nameof(name));
+
+			Name = name;
+			Preis = preis;
+			Warengruppenbereich = warengruppenbereich;
+			Artikelnummern_auflisten(artikelnummer);
+
+
+
+		}
+
+		//public properties
+		public string Name 
+		{  
+			get;
+			set;
+
+		}
+
+		public string Warengruppenbereich 
+		{
+			get;
+		}
+
+		public decimal Preis {  
+			get;
+			set;
+		}
+
+		public int Artikelnummer
+		{ get { return m_artikelnummer; } }
+
+		//public method
+		public void Artikelnummern_auflisten(int neue_artikelnummer)
+		{
+			if(neue_artikelnummer<0) throw new ArgumentException("Die Artikelnummer ist ungültig.", nameof(neue_artikelnummer));
+			m_artikelnummer = neue_artikelnummer;
+		}
+	
+
+		public string kurzBeschreibung => Name;
+
+
+	}
+}
