@@ -19,7 +19,7 @@ namespace Task2
 			Name = name;
 			Preis = preis;
 			Warengruppenbereich = warengruppenbereich;
-			Artikelnummern_auflisten(artikelnummer);
+			Artikelnummern_aktualisieren(artikelnummer);
 
 
 
@@ -47,7 +47,7 @@ namespace Task2
 		{ get { return m_artikelnummer; } }
 	
 		//public method
-		public void Artikelnummern_auflisten(int neue_artikelnummer)
+		public void Artikelnummern_aktualisieren(int neue_artikelnummer)
 		{
 			if(neue_artikelnummer<0) throw new ArgumentException("Die Artikelnummer ist ungültig.", nameof(neue_artikelnummer));
 			m_artikelnummer = neue_artikelnummer;

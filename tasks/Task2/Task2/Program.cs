@@ -9,11 +9,10 @@ namespace Task2
 {
 	class MainClass
 	{
-		public static void Main (string[] args)
+		public static void Main(string[] args)
 		{
-			int auswahl;
 
-			var produkte = new Produkte[] 
+			var produkte = new Produkte[]
 			{
 				new Lebensmittel ("Ja! Bio Zitronen 4Stück", 409346, 1.99m, "Obst und Gemüse"),
 				new Lebensmittel ("San Lucar Bananen", 89103, 1.99m, "Obst und Gemüse"),
@@ -37,62 +36,27 @@ namespace Task2
 			var TextAusFile = File.ReadAllText(file);
 			var ProdukteAusFile = JsonConvert.DeserializeObject<Produkte[]>(TextAusFile, einstellungen);
 
-			foreach (var x in ProdukteAusFile) 
+			foreach (var x in ProdukteAusFile)
 			{
-				Console.WriteLine ("Neues Produkt");
-				Console.WriteLine ("Name: " + x.Name + " \n" + "Artikelnummer: " + x.Artikelnummer + " \n" + "Preis: " + x.Preis + " \n" + "Warengruppenbereich: " + x.Warengruppenbereich + " \n" );
+				Console.WriteLine("Neues Produkt");
+				Console.WriteLine("Name: " + x.Name + " \n" + "Artikelnummer: " + x.Artikelnummer + " \n" + "Preis: " + x.Preis + " \n" + "Warengruppenbereich: " + x.Warengruppenbereich + " \n");
 			}
 
 
+			foreach (var x in ProdukteAusFile)
+			{
 
-			var i = 1;
-				while(i!=0)
-				{
-				Console.WriteLine ("\nWas möchten Sie tun?");
-				Console.WriteLine ("1 -> alle Preise auflisten");
-				Console.WriteLine ("2 -> alle Produktnamen auflisten"); 
-				Console.WriteLine ("3 -> alle Artikelnummern auflisten"); 
-				Console.WriteLine ("4 -> Programm beenden");
-				auswahl = Convert.ToInt32 (Console.ReadLine ());
-					switch (auswahl) 
-					{
-						case 1:
-							{
-								var preise = produkte.Select (x => x.Preis).OrderBy (x => x);
-								Console.WriteLine ();
-								Console.WriteLine ("Preise:");
-								foreach (var x in preise)
-								Console.WriteLine (x);
-								break;
-							}
-						case 2:
-							{
-								var namen = produkte.Select (x => x.Name).OrderBy (x => x);
-								Console.WriteLine ();
-								Console.WriteLine ("Produktnamen:");
-								foreach (var x in namen)
-								Console.WriteLine (x);
-								break;
-							}
-						case 3:
-						{
-							var artikelnummern = produkte.Select (x => x.Artikelnummer).OrderBy (x => x);
-							Console.WriteLine ();
-							Console.WriteLine ("Artikelnummern:");
-							foreach (var x in artikelnummern)
-							Console.WriteLine (x);
-							break;
-						}
-						case 4:
-						{
-							i=0;
-							break;
-						}
-			
-			
-					}
-				}
-				
+				int neuenummer = x.Artikelnummer + 384;
+				x.Artikelnummern_aktualisieren(neuenummer);
+
+				Console.WriteLine("Die neue Artikelnummer für {0} ist {1}", x.Name, x.Artikelnummer);
+
+			}
+
+
+			}
+
 		}
 	}
-}
+
+

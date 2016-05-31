@@ -45,7 +45,9 @@
     <Compile Include="Getraenke.cs" />
     <Compile Include="Lebensmittel.cs" />
     <Compile Include="Sonstiges.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="LebensmittelTests.cs" />
+    <Compile Include="GetraenkeTest.cs" />
+    <Compile Include="SonstigesTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

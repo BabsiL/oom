@@ -8,7 +8,7 @@ namespace Task2
 		decimal Preis { get; set;}
 		int Artikelnummer{get;}
 		string Warengruppenbereich {get;}
-
+		void Artikelnummern_aktualisieren(int neue_artikelnummer);
 
 
 	}
