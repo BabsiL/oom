@@ -9,7 +9,7 @@ namespace Task2
 		int Artikelnummer{get;}
 		string Warengruppenbereich {get;}
 		void Artikelnummern_aktualisieren(int neue_artikelnummer);
-
+		//decimal RabatteEinlösen(decimal preis);
 
 	}
 }

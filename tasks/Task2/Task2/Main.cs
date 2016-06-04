@@ -3,6 +3,8 @@ using System.Linq;
 using Newtonsoft.Json;
 using System.IO;
 using System.Text;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
 
 
 namespace Task2
@@ -64,6 +66,12 @@ namespace Task2
 				x.Artikelnummern_aktualisieren(neuenummer);
 				Console.WriteLine("Die neue Artikelnummer für {0} ist {1}", x.Name, x.Artikelnummer);
 			}
+
+			/*foreach (var x in produkte)
+			{
+				x.Preis = x.RabatteEinlösen(x.Preis);
+
+			}*/
 
 
 			}

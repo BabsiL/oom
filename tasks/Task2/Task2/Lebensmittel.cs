@@ -53,8 +53,18 @@ namespace Task2
 			m_artikelnummer = neue_artikelnummer;
 		}
 
+		/*public decimal RabatteEinlösen(decimal preis)
+		{
+			Console.WriteLine("Wieviel Prozent Rabatt?\n");
+			var prozent = Convert.ToDecimal(Console.ReadLine());
+			if (prozent > 0)
+			{
+				return preis = (prozent / 100) * preis;
+			}
+			else return 0;
 
-		public string kurzBeschreibung => Name;
+		}*/
+
 
 
 	}
