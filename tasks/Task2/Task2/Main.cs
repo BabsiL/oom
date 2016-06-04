@@ -46,16 +46,28 @@ namespace Task2
 			foreach (var x in ProdukteAusFile)
 			{
 
-				int neuenummer = x.Artikelnummer + 384;
+				//ich will hier eigentlich nur für jeden Artikel eine neue Artikelnummer einlesen und wieder ausgeben
+				//ungefähr so:
+				//Console.WriteLine("neue Artikelnummer eingeben: \n");
+				//int neuenummer = Int32.Parse(Console.ReadLine());
+				//x.Artikelnummern_aktualisieren(neuenummer);
+				//Das hier haben Sie nach der letzten Stunde ausprobiert:
+				//var line = Console.ReadLine();
+				//Console.WriteLine("DEBUG: " + line);
+				//int neuenummer = Int32.Parse(line);
+				//x.Artikelnummern_aktualisieren(line);
+				//ich habe das jetzt alles auskommentiert weil das Programm so wie ich es jetzt habe eh läuft,
+				//aber ich würde es generell trotzdem auch gerne so wie ich es mir vorgestellt habe schaffen...
+
+
+				int neuenummer = x.Artikelnummer + 162384;
 				x.Artikelnummern_aktualisieren(neuenummer);
-
 				Console.WriteLine("Die neue Artikelnummer für {0} ist {1}", x.Name, x.Artikelnummer);
-
 			}
 
 
 			}
-
+			 
 		}
 	}
 
