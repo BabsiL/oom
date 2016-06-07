@@ -2,7 +2,7 @@
 using System;
 using Task2;
 
-namespace GetraenkelTest
+namespace GetraenkeTest
 {
 	[TestFixture]
 	public class GetraenkeTest
@@ -39,14 +39,25 @@ namespace GetraenkelTest
 
 
 		[Test]
-		public void KannProduktNichtMitNegativemPreisErstellen()
+		public void KannProduktNichtMitNegativemOderLeeremPreisErstellen()
 		{
 			Assert.Catch(() =>
 			{
 				var x = new Getraenke("Moet &Chandon imperial", 21311, -1, "Getränke");
+				var y = new Getraenke("Moet &Chandon imperial", 21311, 0, "Getränke");
 			});
 		}
 
+
+		[Test]
+		public void KannProduktNichtMitNegativerOderLeererArtikelnummerErstellen()
+		{
+			Assert.Catch(() =>
+			{
+				var x = new Lebensmittel("Moet &Chandon imperial", -1, 42.90m, "Getränke");
+				var y = new Lebensmittel("Moet &Chandon imperial", 0, 42.90m, "Getränke");
+			});
+		}
 
 
 

@@ -37,18 +37,27 @@ namespace LebensmittelTests
 		}
 	
 
-
-
 		[Test]
-		public void KannProduktNichtMitNegativemPreisErstellen()
+		public void KannProduktNichtMitNegativemOderLeeremPreisErstellen()
 		{
 			Assert.Catch(() =>
 			{
 				var x = new Lebensmittel("Ja!Bio Zitronen 4Stück", 409346, -1, "Obst und Gemüse");
+				var y = new Lebensmittel("Ja!Bio Zitronen 4Stück", 409346, 0, "Obst und Gemüse");
 			});
 		}
 
-		
+
+
+		[Test]
+		public void KannProduktNichtMitNegativerOderLeererArtikelnummerErstellen()
+		{
+			Assert.Catch(() =>
+			{
+				var x = new Lebensmittel("Ja!Bio Zitronen 4Stück", -1, 1.99m, "Obst und Gemüse");
+				var y = new Lebensmittel("Ja!Bio Zitronen 4Stück", 0, 1.99m, "Obst und Gemüse");
+			});
+		}
 
 		
 	}

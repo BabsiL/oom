@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using System;
 using Task2;
 
 namespace SonstigesTests
@@ -49,6 +48,27 @@ namespace SonstigesTests
 		}
 
 
+		[Test]
+		public void KannProduktNichtMitNegativemOderLeeremPreisErstellen()
+		{
+			Assert.Catch(() =>
+			{
+				var x = new Lebensmittel("Ariel Flüssig Colour", 417462, -1, "Parfumerie");
+				var y = new Lebensmittel("Ariel Flüssig Colour", 417462, 0, "Parfumerie");
+			});
+		}
+
+
+
+		[Test]
+		public void KannProduktNichtMitNegativerOderLeererArtikelnummerErstellen()
+		{
+			Assert.Catch(() =>
+			{
+				var x = new Lebensmittel("Ariel Flüssig Colour", -1, 7.99m, "Parfumerie");
+				var y = new Lebensmittel("Ariel Flüssig Colour", 0, 7.99m, "Parfumerie");
+			});
+		}
 
 
 	}

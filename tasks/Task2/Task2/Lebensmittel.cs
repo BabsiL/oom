@@ -1,50 +1,57 @@
 ﻿using System;
 
-
 namespace Task2
 {
 	public class Lebensmittel : Produkte
 	{
-
+		
 		//private field
 		private int m_artikelnummer;
-		//constructor
 
+		//constructor
 		public Lebensmittel (string name, int artikelnummer, decimal preis, string warengruppenbereich)
 		{
 
 			if(preis<0) throw new ArgumentException("Der Preis darf keinen negativen Wert haben.", nameof(preis));
 			if(String.IsNullOrWhiteSpace(name)) throw new ArgumentException("Der Name ist ungültig.", nameof(name));
 
-			Name = name;
-			Preis = preis;
-			Warengruppenbereich = warengruppenbereich;
+			this.Name = name;
+			this.Preis = preis;
+			this.Warengruppenbereich = warengruppenbereich;
 			Artikelnummern_aktualisieren(artikelnummer);
 
 
 
 		}
 
-		//public properties
-		public string Name 
+		//public property
+		public string Name
 		{  
 			get;
 			set;
 
 		}
 
+		//public property
 		public string Warengruppenbereich 
 		{
 			get;
 		}
 
+		//public property
 		public decimal Preis {  
 			get;
 			set;
 		}
 
+		//public property
 		public int Artikelnummer
-		{ get { return m_artikelnummer; } }
+		{ 
+			get 
+			{ 
+				return m_artikelnummer; 
+			} 
+		}
 	
 		//public method
 		public void Artikelnummern_aktualisieren(int neue_artikelnummer)

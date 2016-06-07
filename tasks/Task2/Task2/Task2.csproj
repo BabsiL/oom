@@ -59,7 +59,9 @@
     <Compile Include="LebensmittelTests.cs" />
     <Compile Include="GetraenkeTest.cs" />
     <Compile Include="SonstigesTest.cs" />
+    <Compile Include="Push Lebensmittel.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="Tasks.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

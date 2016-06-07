@@ -14,37 +14,55 @@ namespace Task2
 		public static void Main(string[] args)
 		{
 
+			//Aray aus Objekten verschiedener Klassen
 			var produkte = new Produkte[]
 			{
-				new Lebensmittel ("Ja! Bio Zitronen 4Stück", 409346, 1.99m, "Obst und Gemüse"),
-				new Lebensmittel ("San Lucar Bananen", 89103, 1.99m, "Obst und Gemüse"),
+				//Neue Objekte der Klassen erzeugen
+				new Lebensmittel ("Ja! Bio Zitronen 4Stück",  409346, 1.99m, "Obst und Gemüse"),
+				new Lebensmittel ("Billa Doppelschoko-Kuchen", 339574, 1.59m, "Feinkost"),
+				new Lebensmittel ("Finis Feinstes Dinkelmehl", 869039, 2.09m, "Lebensmittel"),
+				new Lebensmittel ("Bonduelle Goldmais",  413600, 1.49m, "Konserven"),
+				new Lebensmittel ("Steirische Freilandeier mittel", 337984, 3.49m, "Frischdienst"),
+				new Lebensmittel ("Ben & Jerrys Cookie Dough", 693076, 5.49m, "Tiefkühl"),
 				new Lebensmittel ("Nöm Frische Vollmilch 3,5%", 411357, 1.09m, "Frischdienst"),
 				new Getraenke ("Wegenstein Zweigelt Rosé", 614732, 2.49m, "Getränke"),
-				new Getraenke ("Moet &Chandon imperial", 21311, 42.90m, "Getränke"),
+				new Getraenke ("Moet &Chandon imperial", 213110, 42.90m, "Getränke"),
 				new Sonstiges ("Vivo Glas 2er Set- 180 ml", 403957,14.99m, "Non food"),
 				new Sonstiges ("Ariel Flüssig Colour", 417462, 7.99m, "Parfumerie"),
 
 
 			};
-
-
-
-			var einstellungen = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Auto };
-			string text = (JsonConvert.SerializeObject(produkte, einstellungen));
-			Console.WriteLine(text);
-			var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-			var file = Path.Combine(desktop, "produkte.json");
-			File.WriteAllText(file, text);
-			var TextAusFile = File.ReadAllText(file);
-			var ProdukteAusFile = JsonConvert.DeserializeObject<Produkte[]>(TextAusFile, einstellungen);
-
-			foreach (var x in ProdukteAusFile)
+			//Ausgabe von allen Produkten
+			foreach (var x in produkte)
 			{
 				Console.WriteLine("Neues Produkt");
 				Console.WriteLine("Name: " + x.Name + " \n" + "Artikelnummer: " + x.Artikelnummer + " \n" + "Preis: " + x.Preis + " \n" + "Warengruppenbereich: " + x.Warengruppenbereich + " \n");
 			}
 
 
+			//serialisieren
+			var einstellungen = new JsonSerializerSettings() { Formatting = Formatting.Indented, TypeNameHandling = TypeNameHandling.Auto };
+			string text = (JsonConvert.SerializeObject(produkte, einstellungen));
+			//serialisierte Produkte ausgeben
+			Console.WriteLine(text);
+			//File namens produkte.json wird nach dem hineinschreibem am Desktop gespeichert
+			var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+			var file = Path.Combine(desktop, "produkte.json");
+			//alle serialisierten Produkte ins File am Desktop schreiben
+			File.WriteAllText(file, text);
+			//Produkte aus File lesen
+			var TextAusFile = File.ReadAllText(file);
+			//Deserialisieren
+			var ProdukteAusFile = JsonConvert.DeserializeObject<Produkte[]>(TextAusFile, einstellungen);
+
+			//ausgabe Für deserialisierte Produkte aus dem File
+			foreach (var x in ProdukteAusFile)
+			{
+				Console.WriteLine("Neues Produkt");
+				Console.WriteLine("Name: " + x.Name + " \n" + "Artikelnummer: " + x.Artikelnummer + " \n" + "Preis: " + x.Preis + " \n" + "Warengruppenbereich: " + x.Warengruppenbereich + " \n");
+			}
+
+			//Ausgabe für die Produkte aus dem File für die Funktion Artikelnummern_aktualisieren
 			foreach (var x in ProdukteAusFile)
 			{
 
@@ -62,21 +80,21 @@ namespace Task2
 				//aber ich würde es generell trotzdem auch gerne so wie ich es mir vorgestellt habe schaffen...
 
 
-				int neuenummer = x.Artikelnummer + 162384;
+				int neuenummer = x.Artikelnummer + 012384;
 				x.Artikelnummern_aktualisieren(neuenummer);
 				Console.WriteLine("Die neue Artikelnummer für {0} ist {1}", x.Name, x.Artikelnummer);
 			}
 
+
 			/*foreach (var x in produkte)
-			{
-				x.Preis = x.RabatteEinlösen(x.Preis);
+            {
+                x.Preis = x.RabatteEinlösen(x.Preis);
 
-			}*/
+            }*/
 
-
-			}
-			 
+			Push_Lebensmittel.Push();
 		}
+
+
 	}
-
-
+}
