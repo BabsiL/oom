@@ -19,6 +19,7 @@ namespace Task2
 			this.Preis = preis;
 			this.Warengruppenbereich = warengruppenbereich;
 			Artikelnummern_aktualisieren(artikelnummer);
+			//RabatteEinlösen(preis);
 
 
 

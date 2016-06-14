@@ -62,6 +62,7 @@
     <Compile Include="Push Lebensmittel.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Tasks.cs" />
+    <Compile Include="asyncawait.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

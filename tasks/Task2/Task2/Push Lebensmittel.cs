@@ -12,15 +12,16 @@ namespace Task2
 		
 		public static void Push()
 		{
-			//Subject erstellt
+			//Subject erstellt (Subject ist Datenquelle, erzeugt Werte)
 			var source = new Subject<Lebensmittel>();
 
 
-
+			//neuen Thread erzeugen also die Funktion wird in einem neuen Thread gestartet
 			var thread = new Thread(() =>
 			{
 				//neue Lebensmittelobjekte pushen
 				var i = 0;
+
 				var lebensmittel = new Lebensmittel[]
 				{
 					
@@ -32,21 +33,21 @@ namespace Task2
 					new Lebensmittel ("Pro Planet Karotten", 429089, 1.39m, "Obst und Gemüse"),
 
 				};
-
+				//Nur Lebensmittel mit gültigem Namen (Länge>0)ausgeben (where filtert heraus)
 				source
-				//Nur Lebensmittel mit gültigem Namen (>0)ausgeben
 					.Where(x => x.Name.Length > 0)
 					.Subscribe(x => Console.WriteLine(x.Name))
 				;
 				while (i < lebensmittel.Length)
 				{
+					
 					//Länge der Abstände während der Ausgabe (hier: 1/2 Sekunde)
-					Thread.Sleep(500);
+					Thread.Sleep(50);
 					//Nach der Reihe jeses Lebensmittel ausgeben von der obigen Liste
 					source.OnNext(lebensmittel[i]);
 
-
 					i++;
+
 				}
 			});
 			thread.Start();
